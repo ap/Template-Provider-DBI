@@ -1,0 +1,10 @@
+use ExtUtils::MakeMaker;
+
+WriteMakefile(
+     NAME          => 'Template::Provider::DBI',
+     VERSION_FROM  => 'lib/Template/Provider/DBI.pm',
+     PREREQ_PM     => { 'DBI'                   => 0,
+                        'DateTime::Format::DBI' => 0,
+                        'Template::Provider'    => 0,
+                    },
+);
