@@ -5,6 +5,6 @@ WriteMakefile(
      VERSION_FROM  => 'lib/Template/Provider/DBI.pm',
      PREREQ_PM     => { 'DBI'                   => 0,
                         'DateTime::Format::DBI' => 0,
-                        'Template::Provider'    => 0,
+                        'Template'              => 2.15,
                     },
 );

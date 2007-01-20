@@ -85,6 +85,8 @@ sub _load
     # fetch template from db
     $self->{DBI_STH}->execute($name);
     my ($templ, $modified) = $self->{DBI_STH}->fetchrow_array();
+    return (undef, Template::Constants::STATUS_DECLINED) 
+        if(!defined $templ);
     if($modified && exists $self->{DBI_DT})
     {
         # No "modified" field used, as we have no DT::Format::X
@@ -132,6 +134,7 @@ sub convert_timestamp
 {
     my ($self, $timestamp) = @_;
 
+    return time() if(!$timestamp);
     if($self->{DBI_DT} && $self->{DBI_DT}->can('parse_timestamp'))
     {
         my $dt = $self->{DBI_DT}->parse_timestamp($timestamp);
@@ -274,6 +277,6 @@ any.
 
 =head1 AUTHOR
 
-Jess Robinson <castaway@desert-island.dynodns.net>
+Jess Robinson <cpan@desert-island.demon.co.uk>
 
 =cut

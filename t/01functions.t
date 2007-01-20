@@ -14,9 +14,7 @@ if(!$ENV{DBI_DSN})
 my @auth = ();
 @auth = ($ENV{DBI_USER}, $ENV{DBI_PASSWD}) if(defined $ENV{DBI_USER} && defined $ENV{DBI_PASSWD});
 
-my $dbh = DBI->connect($ENV{DBI_DSN}, @auth) or die "Couldn't create an SQLite database! $DBI::errstr";
-# my $dbh = DBI->connect('dbi:DB2:test', 'missys', 'missys') or die "Couldn't create a DB2 database! $DBI::errstr";
-
+my $dbh = DBI->connect($ENV{DBI_DSN}, @auth) or die "Couldn't connect to a database! $DBI::errstr";
 # my $newtable = "CREATE TABLE templates (filename VARCHAR(30), modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP, template VARCHAR(1024))";
 my $newtable = "CREATE TABLE templates (filename VARCHAR(30), template VARCHAR(1024))";
 
