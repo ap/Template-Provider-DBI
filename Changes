@@ -1,3 +1,5 @@
+2007-01-23:
+Skip tests if no DBD::SQLite installed.
 
 2007-01-21:
 0.01 - Initial version.

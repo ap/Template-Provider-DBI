@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-use Test::More 'no_plan';
+use Test::More;
 use Template;
 use Template::Constants qw( :debug );
 use DBI;
@@ -9,6 +9,13 @@ if(!$ENV{DBI_DSN})
 {
     warn "No DBI_DSN variable set, testing with SQLite, and './testing.db'\n";
     $ENV{DBI_DSN} = 'dbi:SQLite:dbname=./testing.db';
+}
+
+BEGIN {
+    eval { use DBD::SQLite; };
+    plan $@ 
+        ? ( skip_all => 'needs DBD::SQLite for testing' )
+        : ( tests => 4 );
 }
 
 my @auth = ();

@@ -6,5 +6,6 @@ WriteMakefile(
      PREREQ_PM     => { 'DBI'                   => 0,
                         'DateTime::Format::DBI' => 0,
                         'Template'              => 2.15,
+#                        'DBD::SQLite'           => 0,
                     },
 );
