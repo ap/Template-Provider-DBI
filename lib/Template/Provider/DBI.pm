@@ -4,7 +4,7 @@ use DBI;
 use DateTime::Format::DBI;
 use base 'Template::Provider';
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub _init
 {
@@ -108,7 +108,7 @@ sub _load
 ## _store uses stat on the filename, bah
 ## patch to call _mtime($name) ?
 
-sub _mtime
+sub _modified
 {
     my ($self, $name) = @_;
 
